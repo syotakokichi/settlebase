@@ -2,6 +2,8 @@
 
 マルチテナント社内精算・ウォレット基盤の公開デモ。
 
+デモ: <https://settlebase-sandy.vercel.app>
+
 AI 開発ハーネス連載（Zenn）のデモリポジトリとして、プロダクト本体だけでなく
 開発ハーネス（devlog / ADR / GLOSSARY / CI）をまるごと公開する。
 
