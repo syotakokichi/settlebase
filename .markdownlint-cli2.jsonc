@@ -1,0 +1,8 @@
+{
+  // ハーネス検証CIの markdownlint 設定（対象 glob は workflow 側で指定）
+  "config": {
+    "default": true,
+    // 日本語の文は 80 文字を自然に超えるため行長は見ない
+    "MD013": false
+  }
+}
