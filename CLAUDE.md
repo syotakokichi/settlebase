@@ -88,8 +88,10 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 
 ## 検証
 
-- `/verify` = pgTAP（`supabase test db --linked`）+ markdownlint + lychee + 境界ゲート
-- `supabase db start` は Docker 前提で **CI 専用**。ローカルでは叩かない
+- `/verify` = markdownlint + lychee + 境界ゲート。pgTAP は CI（db-tests）で検証する
+- pgTAP をローカルで実行しない: `supabase test db` は pg_prove をコンテナで実行するため
+  **--linked でも Docker が必須**（本リポジトリはローカルに Docker を導入しない）
+- `supabase db start` も Docker 前提で **CI 専用**。ローカルでは叩かない
 - CI: `harness.yml`（lint + リンク）/ `db-tests.yml`（pgTAP）
 
 ## セキュリティ既定

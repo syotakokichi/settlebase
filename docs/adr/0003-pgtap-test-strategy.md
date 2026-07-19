@@ -21,11 +21,14 @@
   `request.jwt.claims` と role の設定）。外部のテストヘルパーパッケージは
   拡張機構への依存が増えるため採用しない。依存が最小で、リンク先の hosted DB でも
   同一挙動になり、テストの中身をそのまま記事で説明できる
-- **実行は二層**:
-  - ローカル = `supabase test db --linked`（Docker 不要。リンク済み hosted DB に
-    対して実行し、全操作はトランザクション内で rollback される）
-  - CI = `supabase db start` + `supabase test db`（Docker あり。migration の適用
-    からテストまでを毎回まっさらな DB で検証する）
+- **pgTAP の実行は CI に一本化**: `supabase db start` + `supabase test db`（Docker あり。
+  migration の適用からテストまでを毎回まっさらな DB で検証する）。
+  当初は「ローカルは `supabase test db --linked`（Docker 不要）」を想定したが、
+  `supabase test db` は pg_prove をコンテナで実行するため **--linked でも Docker が必須**
+  と判明した（2026-07-19 訂正）。ローカルに Docker を導入しない方針を維持し、
+  ローカルからの検証は push（= PR の CI）を単位とする
+- **hosted への適用確認**: 適用は `supabase db push --linked`、一致確認は
+  `supabase migration list --linked`（どちらも Docker 不要）で行う
 - **force RLS（`alter table ... force row level security`）は今回不採用**。
   テスト fixture の投入をテーブル owner（postgres）で行う構成のため、
   owner にも RLS を強制すると fixture 投入自体が塞がる。
@@ -34,6 +37,7 @@
 ## Consequences
 
 - テストファイル間で fixture の記述が重複するが、ファイル単位の独立性・可搬性を優先する
+- ローカルでは pgTAP を直接実行できない。テストの検証単位は PR / push の CI になる
 - hosted 側で pgtap extension の作成が権限上できない場合のみ、dashboard から
   一度だけ有効化する（fallback。実施した場合は devlog に記録する）
 - owner 経由の direct SQL は RLS の対象外である事実は、テスト（003）で
