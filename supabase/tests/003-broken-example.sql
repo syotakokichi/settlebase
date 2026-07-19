@@ -48,6 +48,9 @@ select isnt(
 create view public.all_wallets as
   select id, tenant_id, name, balance from public.wallets;
 
+-- アプリから使わせる想定で view を authenticated に公開する（危険実装の再現）
+grant select on public.all_wallets to authenticated;
+
 -- alice としてログイン（002 と同じ最小ヘルパー）
 select set_config('request.jwt.claims',
   '{"sub":"00000000-0000-0000-0000-00000000000a","role":"authenticated"}', true);

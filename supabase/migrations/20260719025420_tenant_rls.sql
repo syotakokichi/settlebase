@@ -24,6 +24,14 @@ alter table public.tenants enable row level security;
 alter table public.members enable row level security;
 alter table public.wallets enable row level security;
 
+-- 権限はプラットフォームの既定 grant に依存せず、migration で明示する。
+-- （hosted の既定では anon / authenticated に広い grant が付くが、まっさらな DB には無い。
+--   環境差で挙動が変わらないよう、いったん revoke してから最小限だけ grant する）
+-- anon には何も許可しない。authenticated も RLS と grant の二段で最小権限にする
+revoke all on public.tenants, public.members, public.wallets from anon, authenticated;
+grant select on public.tenants, public.members, public.wallets to authenticated;
+grant insert on public.wallets to authenticated;
+
 create policy "tenants: 自テナントのみ参照" on public.tenants
   for select to authenticated
   using (id in (select private.user_tenant_ids()));

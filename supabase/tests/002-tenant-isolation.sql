@@ -88,12 +88,22 @@ select is(
 
 select is((select count(*)::int from public.wallets), 1, 'bob から見える wallet は自テナントの 1 件のみ');
 
--- ---- anon には何も見えない ----
+-- ---- anon には grant 自体がない（RLS 以前に権限エラーになる） ----
 reset role;
 set local role anon;
 
-select is((select count(*)::int from public.wallets), 0, 'anon から wallet は 0 件');
-select is((select count(*)::int from public.tenants), 0, 'anon から tenant は 0 件');
+select throws_ok(
+  $$ select count(*) from public.wallets $$,
+  '42501',
+  null,
+  'anon は wallets を参照できない（grant なし）'
+);
+select throws_ok(
+  $$ select count(*) from public.tenants $$,
+  '42501',
+  null,
+  'anon は tenants を参照できない（grant なし）'
+);
 
 select * from finish();
 rollback;

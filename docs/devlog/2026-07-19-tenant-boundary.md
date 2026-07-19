@@ -29,6 +29,16 @@ UI は待たず、SQL とテストのレベルで境界が成立しているこ�
 | ローカル（Docker なし） | `supabase test db --linked` | リンク済み hosted DB に対して pgTAP 実行（全操作 rollback） |
 | CI（Docker あり） | `supabase db start` → `supabase test db` | まっさらな DB で migration + テストを毎回検証 |
 
+## CI が捕まえた環境差（学び）
+
+初回の PR で 002/003 が `permission denied for table tenants` で fail した。
+原因は hosted 環境の既定 grant（新規テーブルに anon / authenticated へ広い権限が自動付与される）を
+暗黙の前提にしていたこと。CI のまっさらな DB には既定 grant がなく、環境差がそのまま露出した。
+
+対応: migration で `revoke all` → 最小 grant を明示し、テストも
+「anon は grant 自体がない（42501 エラー）」を仕様として固定した。
+権限をプラットフォーム既定に依存させない設計に直せたのは CI（まっさらな DB での毎回検証）の成果。
+
 ## 操作主体と未実施事項
 
 | 操作 | 主体 | 状態 |
