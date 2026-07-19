@@ -1,6 +1,6 @@
 # DB テスト（pgTAP）専用ワークフロー。文書系の harness.yml とは責務を分離する。
 # CI は Docker が使えるため、ローカル DB を起動して migration + テストを検証する。
-# （ローカル開発では Docker を使わず supabase test db --linked を使う）
+# （ローカルは Docker 非導入のため pgTAP を実行しない。pgTAP の正は本 CI。ADR-0003）
 name: db-tests
 
 on:
