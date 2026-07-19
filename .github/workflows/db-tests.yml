@@ -1,0 +1,29 @@
+# DB テスト（pgTAP）専用ワークフロー。文書系の harness.yml とは責務を分離する。
+# CI は Docker が使えるため、ローカル DB を起動して migration + テストを検証する。
+# （ローカル開発では Docker を使わず supabase test db --linked を使う）
+name: db-tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  pgtap:
+    name: pgTAP (migrations + authorization tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start local database (applies migrations)
+        run: supabase db start
+
+      - name: Run pgTAP tests
+        run: supabase test db

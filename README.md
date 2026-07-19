@@ -20,8 +20,9 @@ AI 開発ハーネス連載（Zenn）のデモリポジトリとして、プロ�
 
 ## Status
 
-現在は **scaffold 段階**。デモ URL はテンプレートの初期画面のみで、
-スキーマ・RLS・認可テストは未実装（次のマイルストーン）。
+**スキーマ・RLS・認可テストを実装済み**（tenants / members / wallets +
+テナント分離ポリシー + pgTAP。CI の db-tests で検証）。
+デモ URL はまだテンプレートの初期画面のみで、UI は次のマイルストーン。
 このリポジトリは連載と並行して段階的に育てる方針のため、
 進捗と設計判断は docs/devlog/ と docs/adr/ を参照。
 
@@ -41,9 +42,11 @@ AI 開発ハーネス連載（Zenn）のデモリポジトリとして、プロ�
 ```text
 settlebase/
 ├── web/        # Next.js アプリ（アプリ都合のファイルはここに閉じる）
+├── supabase/   # スキーマ migration・RLS・pgTAP 認可テスト
 ├── docs/
 │   ├── devlog/ # 開発ログ（YYYY-MM-DD-topic.md）
 │   └── adr/    # 設計判断の記録（MADR-lite）
+├── scripts/    # 境界チェック等の運用スクリプト
 ├── GLOSSARY.md # 用語集（定義 + Avoid）
 └── LICENSE     # MIT
 ```
