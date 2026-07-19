@@ -26,6 +26,17 @@ AI 開発ハーネス連載（Zenn）のデモリポジトリとして、プロ�
 このリポジトリは連載と並行して段階的に育てる方針のため、
 進捗と設計判断は docs/devlog/ と docs/adr/ を参照。
 
+## 連載とここまでの歩み
+
+最新の弾のグラレコ（弾ごとに差し替え）:
+
+![第2弾 テナント境界編のグラフィックレコーディング](docs/devlog/assets/2026-07-19-tenant-boundary.png)
+
+| 弾 | 内容 | 記事 | devlog | グラレコ |
+|----|------|------|--------|---------|
+| 第1弾 | 立ち上げ: 構想から 1 日で公開 | [Zenn](https://zenn.dev/syommy_program/articles/settlebase-launch-devlog) | [2026-07-18-launch](docs/devlog/2026-07-18-launch.md) | [PNG](docs/devlog/assets/2026-07-18-launch.png) |
+| 第2弾 | テナント境界: RLS × pgTAP × CI の三層 | 執筆中 | [2026-07-19-tenant-boundary](docs/devlog/2026-07-19-tenant-boundary.md) | [PNG](docs/devlog/assets/2026-07-19-tenant-boundary.png) |
+
 ## Out of Scope（やらないこと）
 
 - **実決済は扱わない**。実マネーの入出金・決済 API 連携は本デモの対象外
@@ -45,6 +56,7 @@ settlebase/
 ├── supabase/   # スキーマ migration・RLS・pgTAP 認可テスト
 ├── docs/
 │   ├── devlog/ # 開発ログ（YYYY-MM-DD-topic.md）
+│   │   └── assets/ # 連載グラレコ（devlog と同名・時系列）
 │   └── adr/    # 設計判断の記録（MADR-lite）
 ├── scripts/    # 境界チェック等の運用スクリプト
 ├── GLOSSARY.md # 用語集（定義 + Avoid）
