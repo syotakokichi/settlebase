@@ -1,7 +1,35 @@
-# Project Instructions for AI Agents
+# CLAUDE.md - settlebase 開発ガイド
 
-This file provides instructions and context for AI coding agents working on this project.
+マルチテナント社内精算・ウォレット基盤の公開デモ。技術記事連載の実コード素材として、
+スキーマ・RLS・認可テスト・開発ハーネスを段階的に育てる。実決済は扱わない
+（プロダクト概要は [README](README.md) を参照）。
 
+## 公開境界（最重要）
+
+- この repo は **公開されている**。公開は不可逆なので、**全 push 前に `/boundary-check` を必ず実行する**
+- 境界ゲートは fail-closed: 非公開の語リスト（`~/.config/settlebase/boundary-words.txt`）が
+  読めなければ exit 1 で停止する
+- 境界チェックは CI に含めない（語リストが非公開のため）。ローカルの push 前ゲートとして運用する
+- 詳細: [.claude/rules/boundary-check.md](.claude/rules/boundary-check.md)
+
+## リポジトリ構成
+
+| パス | 役割 |
+| --- | --- |
+| `web/` | Next.js アプリ（Supabase Auth 込み） |
+| `supabase/` | スキーマ migration・RLS・pgTAP 認可テスト |
+| `docs/devlog/` | 時系列の開発記録 |
+| `docs/adr/` | 設計判断の記録（MADR-lite） |
+| `scripts/` | 境界チェック等の運用スクリプト |
+| `.claude/` | エージェント向けルール・コマンド |
+| `GLOSSARY.md` | ドメイン用語集(定義 + Avoid) |
+
+## タスク運用（beads）
+
+起票 → claim → 実装 → `/verify` → `/boundary-check` → push の順で進める。
+
+<!-- bd 生成の managed block。bd のアップデートと共存させるため内容は変更せず、lint のみ除外する -->
+<!-- markdownlint-disable MD031 MD032 MD034 -->
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:6cd5cc61 -->
 ## Beads Issue Tracker
 
@@ -56,22 +84,16 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 - Do not commit or push without clear authority from the active profile or the current user request.
 - If a required sync or push is blocked, stop and report the exact command and error.
 <!-- END BEADS INTEGRATION -->
+<!-- markdownlint-enable MD031 MD032 MD034 -->
 
+## 検証
 
-## Build & Test
+- `/verify` = pgTAP（`supabase test db --linked`）+ markdownlint + lychee + 境界ゲート
+- `supabase db start` は Docker 前提で **CI 専用**。ローカルでは叩かない
+- CI: `harness.yml`（lint + リンク）/ `db-tests.yml`（pgTAP）
 
-_Add your build and test commands here_
+## セキュリティ既定
 
-```bash
-# Example:
-# npm install
-# npm test
-```
-
-## Architecture Overview
-
-_Add a brief overview of your project architecture_
-
-## Conventions & Patterns
-
-_Add your project-specific conventions here_
+- `.env*` はコミットしない（`.env.example` のみ可）
+- service_role key はコミット・クライアント使用とも禁止
+- anon ロールには何も許可しない（RLS ポリシーは authenticated のみに与える）
