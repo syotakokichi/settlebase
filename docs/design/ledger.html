@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>settlebase 台帳画面（ワイヤーフレーム・静的スナップショット）</title>
+<style>
+body{margin:0;background:#F7F9FA;color:#384250;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans","Noto Sans JP",sans-serif}
+a{color:#0E8F76;text-decoration:none}
+</style>
+</head>
+<body>
+<div id="dc-root"><div class="sc-host" data-sc-name="settlebase-admin"><div data-dc-tpl="2" style="width: 1280px; min-height: 800px; display: flex; background: rgb(247, 249, 250);">
+  <aside data-dc-tpl="3" style="width: 232px; flex: 0 0 auto; display: flex; flex-direction: column; background: rgb(255, 255, 255); border-right: 1px solid rgb(228, 233, 236); padding: 16px 12px;">
+    <button data-dc-tpl="4" class="scp0" style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 9px 12px; margin-bottom: 14px; background: rgb(255, 255, 255); border: 1px solid rgb(205, 213, 219); border-radius: 8px; font-size: 13px; font-weight: 600; color: rgb(16, 24, 40); cursor: pointer; font-family: inherit;">
+      <span data-dc-tpl="5">テナントA</span><span data-dc-tpl="6" style="color: rgb(102, 112, 133); font-weight: 400; font-size: 11px;">切替 ▾</span>
+    </button>
+    <nav data-dc-tpl="7" style="display: flex; flex-direction: column; gap: 2px;">
+      
+        <div data-dc-tpl="9" class="scp0" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; background: transparent; color: rgb(56, 66, 80); font-weight: 400;">
+          <span data-dc-tpl="10" style="width: 16px; height: 16px; flex: 0 0 auto; border-radius: 4px; background: currentcolor; opacity: 0.25;"></span><span class="sc-interp">ダッシュボード</span>
+        </div>
+      
+        <div data-dc-tpl="9" class="scp0" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; background: transparent; color: rgb(56, 66, 80); font-weight: 400;">
+          <span data-dc-tpl="10" style="width: 16px; height: 16px; flex: 0 0 auto; border-radius: 4px; background: currentcolor; opacity: 0.25;"></span><span class="sc-interp">部門ウォレット</span>
+        </div>
+      
+        <div data-dc-tpl="9" class="scp0" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; background: transparent; color: rgb(56, 66, 80); font-weight: 400;">
+          <span data-dc-tpl="10" style="width: 16px; height: 16px; flex: 0 0 auto; border-radius: 4px; background: currentcolor; opacity: 0.25;"></span><span class="sc-interp">振替・精算申請</span>
+        </div>
+      
+        <div data-dc-tpl="9" class="scp0" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; background: transparent; color: rgb(56, 66, 80); font-weight: 400;">
+          <span data-dc-tpl="10" style="width: 16px; height: 16px; flex: 0 0 auto; border-radius: 4px; background: currentcolor; opacity: 0.25;"></span><span class="sc-interp">承認</span>
+        </div>
+      
+        <div data-dc-tpl="9" class="scp0" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; background: rgb(213, 245, 236); color: rgb(15, 114, 97); font-weight: 600;">
+          <span data-dc-tpl="10" style="width: 16px; height: 16px; flex: 0 0 auto; border-radius: 4px; background: currentcolor; opacity: 0.25;"></span><span class="sc-interp">台帳</span>
+        </div>
+      
+        <div data-dc-tpl="9" class="scp0" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; background: transparent; color: rgb(56, 66, 80); font-weight: 400;">
+          <span data-dc-tpl="10" style="width: 16px; height: 16px; flex: 0 0 auto; border-radius: 4px; background: currentcolor; opacity: 0.25;"></span><span class="sc-interp">監査ログ</span>
+        </div>
+      
+        <div data-dc-tpl="9" class="scp0" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; background: transparent; color: rgb(56, 66, 80); font-weight: 400;">
+          <span data-dc-tpl="10" style="width: 16px; height: 16px; flex: 0 0 auto; border-radius: 4px; background: currentcolor; opacity: 0.25;"></span><span class="sc-interp">ロール管理</span>
+        </div>
+      
+    </nav>
+    <div data-dc-tpl="11" style="margin-top: auto; padding: 12px 12px 4px; border-top: 1px solid rgb(228, 233, 236); display: flex; align-items: center; gap: 8px;">
+      <span data-dc-tpl="12" style="width: 28px; height: 28px; flex: 0 0 auto; border-radius: 999px; background: rgb(233, 238, 241); color: rgb(102, 112, 133); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">や</span>
+      <span data-dc-tpl="13" style="font-size: 13px; color: rgb(16, 24, 40); font-weight: 600;">やまなか</span>
+      <span data-dc-tpl="14" style="margin-left: auto; border-radius: 999px; padding: 2px 8px; font-size: 11px; font-weight: 600; color: rgb(21, 112, 184); background: rgb(233, 243, 251);">承認者</span>
+    </div>
+  </aside>
+  
+  
+  
+  
+  <main data-dc-tpl="167" data-screen-label="台帳" style="flex: 1 1 0%; min-width: 0px; padding: 28px 32px;">
+    <div data-dc-tpl="168" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px;">
+      <div data-dc-tpl="169">
+        <h1 data-dc-tpl="170" style="margin: 0px; font-size: 20px; font-weight: 700; color: rgb(16, 24, 40); letter-spacing: -0.01em;">台帳</h1>
+        <p data-dc-tpl="171" style="margin: 6px 0px 0px; font-size: 12px; color: rgb(102, 112, 133); display: flex; align-items: center; gap: 6px;"><span data-dc-tpl="172" style="flex: 0 0 auto; width: 6px; height: 6px; border-radius: 999px; background: rgb(53, 194, 166);"></span>台帳は追記のみ。訂正は逆仕訳で行います（編集・削除はできません）</p>
+      </div>
+      <div data-dc-tpl="173" style="display: flex; gap: 8px; align-items: flex-start;">
+        <button data-dc-tpl="174" class="scp4" style="border: 0px; border-radius: 8px; padding: 9px 12px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; background: transparent; color: rgb(14, 143, 118);"><span class="sc-interp">空状態を表示</span></button>
+        <div data-dc-tpl="175" style="text-align: right;">
+          <button data-dc-tpl="176" class="scp5" style="border: 0px; border-radius: 8px; padding: 9px 16px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; background: rgb(14, 143, 118); color: rgb(255, 255, 255); box-shadow: rgba(16, 24, 40, 0.05) 0px 1px 2px;">逆仕訳を申請</button>
+          <div data-dc-tpl="177" style="font-size: 11px; color: rgb(152, 162, 179); margin-top: 4px;">承認者・管理者のみ</div>
+        </div>
+      </div>
+    </div>
+    <div data-dc-tpl="178" style="display: flex; gap: 8px; align-items: center; margin-bottom: 14px;">
+      <select data-dc-tpl="179" class="scp6" style="padding: 8px 12px; border: 1px solid rgb(205, 213, 219); border-radius: 8px; font-size: 12px; font-weight: 600; color: rgb(16, 24, 40); background: rgb(255, 255, 255); font-family: inherit; box-shadow: rgba(16, 24, 40, 0.05) 0px 1px 2px; cursor: pointer; outline: none;"><option data-dc-tpl="180">期間: 2026/07/01 – 07/20</option><option data-dc-tpl="181">2026/06</option><option data-dc-tpl="182">2026/05</option></select>
+      <select data-dc-tpl="183" class="scp6" style="padding: 8px 12px; border: 1px solid rgb(205, 213, 219); border-radius: 8px; font-size: 12px; font-weight: 600; color: rgb(16, 24, 40); background: rgb(255, 255, 255); font-family: inherit; box-shadow: rgba(16, 24, 40, 0.05) 0px 1px 2px; cursor: pointer; outline: none;"><option data-dc-tpl="184">ウォレット: すべて</option><option data-dc-tpl="185">開発部</option><option data-dc-tpl="186">営業部</option><option data-dc-tpl="187">総務部</option></select>
+      <select data-dc-tpl="188" class="scp6" style="padding: 8px 12px; border: 1px solid rgb(205, 213, 219); border-radius: 8px; font-size: 12px; font-weight: 600; color: rgb(16, 24, 40); background: rgb(255, 255, 255); font-family: inherit; box-shadow: rgba(16, 24, 40, 0.05) 0px 1px 2px; cursor: pointer; outline: none;"><option data-dc-tpl="189">種別: すべて</option><option data-dc-tpl="190">振替</option><option data-dc-tpl="191">立替精算</option><option data-dc-tpl="192">逆仕訳</option></select>
+      <span data-dc-tpl="193" style="margin-left: auto; font-size: 11px; color: rgb(152, 162, 179);">最終記帳 07/20 10:02 ・ <span data-dc-tpl="194" style="font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace;"><span class="sc-interp">6</span></span> 件表示</span>
+    </div>
+    <section data-dc-tpl="195" style="background: rgb(255, 255, 255); border: 1px solid rgb(228, 233, 236); border-radius: 12px; overflow: hidden; box-shadow: rgba(16, 24, 40, 0.05) 0px 1px 2px, rgba(16, 24, 40, 0.08) 0px 8px 24px -8px;">
+      <div data-dc-tpl="196" style="display: grid; grid-template-columns: 96px 90px 108px 96px 96px 100px 1fr 92px; gap: 0px 10px; padding: 10px 16px; background: rgb(247, 249, 250); border-bottom: 1px solid rgb(228, 233, 236); font-size: 11px; font-weight: 600; color: rgb(102, 112, 133); letter-spacing: 0.02em;">
+        <span data-dc-tpl="197">記帳日時</span><span data-dc-tpl="198">エントリID</span><span data-dc-tpl="199">ウォレット</span><span data-dc-tpl="200">借方</span><span data-dc-tpl="201">貸方</span><span data-dc-tpl="202" style="text-align: right;">金額</span><span data-dc-tpl="203">摘要</span><span data-dc-tpl="204">関連申請</span>
+      </div>
+      
+        
+          <div data-dc-tpl="207" class="scp7" style="display: grid; grid-template-columns: 96px 90px 108px 96px 96px 100px 1fr 92px; gap: 0px 10px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(228, 233, 236); font-size: 12px; color: rgb(56, 66, 80); background: transparent; box-shadow: none; transition: background 0.15s;">
+            <span data-dc-tpl="208" style="color: rgb(102, 112, 133); font-variant-numeric: tabular-nums;"><span class="sc-interp">07/20 10:02</span></span>
+            <span data-dc-tpl="209" style="font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 11px; color: rgb(102, 112, 133);"><span class="sc-interp">LED-0424</span></span>
+            <span data-dc-tpl="210" style="display: flex; align-items: center; gap: 6px;"><span data-dc-tpl="211" style="width: 20px; height: 20px; flex: 0 0 auto; border-radius: 6px; background: rgb(213, 245, 236); color: rgb(15, 114, 97); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;"><span class="sc-interp">開</span></span><span class="sc-interp">開発部</span></span>
+            <span data-dc-tpl="212"><span class="sc-interp">営業部</span></span>
+            <span data-dc-tpl="213"><span class="sc-interp">開発部</span></span>
+            <span data-dc-tpl="214" style="text-align: right; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; font-weight: 600; color: rgb(16, 24, 40);"><span class="sc-interp">¥120,000</span></span>
+            <span data-dc-tpl="215" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: flex; align-items: center; gap: 6px; min-width: 0px;"><span data-dc-tpl="218" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><span class="sc-interp">クラウド利用料の按分（REQ-0207 承認）</span></span></span>
+            <span data-dc-tpl="221"><a data-dc-tpl="222" style="font-size: 11px; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; cursor: pointer;"><span class="sc-interp">REQ-0207</span></a></span>
+          </div>
+        
+          <div data-dc-tpl="207" class="scp7" style="display: grid; grid-template-columns: 96px 90px 108px 96px 96px 100px 1fr 92px; gap: 0px 10px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(228, 233, 236); font-size: 12px; color: rgb(56, 66, 80); background: transparent; box-shadow: none; transition: background 0.15s;">
+            <span data-dc-tpl="208" style="color: rgb(102, 112, 133); font-variant-numeric: tabular-nums;"><span class="sc-interp">07/19 16:40</span></span>
+            <span data-dc-tpl="209" style="font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 11px; color: rgb(102, 112, 133);"><span class="sc-interp">LED-0423</span></span>
+            <span data-dc-tpl="210" style="display: flex; align-items: center; gap: 6px;"><span data-dc-tpl="211" style="width: 20px; height: 20px; flex: 0 0 auto; border-radius: 6px; background: rgb(213, 245, 236); color: rgb(15, 114, 97); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;"><span class="sc-interp">総</span></span><span class="sc-interp">総務部</span></span>
+            <span data-dc-tpl="212"><span class="sc-interp">総務部</span></span>
+            <span data-dc-tpl="213"><span class="sc-interp">たなか</span></span>
+            <span data-dc-tpl="214" style="text-align: right; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; font-weight: 600; color: rgb(16, 24, 40);"><span class="sc-interp">¥9,240</span></span>
+            <span data-dc-tpl="215" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: flex; align-items: center; gap: 6px; min-width: 0px;"><span data-dc-tpl="218" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><span class="sc-interp">来客用備品の購入</span></span></span>
+            <span data-dc-tpl="221"><a data-dc-tpl="222" style="font-size: 11px; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; cursor: pointer;"><span class="sc-interp">REQ-0201</span></a></span>
+          </div>
+        
+          <div data-dc-tpl="207" class="scp7" style="display: grid; grid-template-columns: 96px 90px 108px 96px 96px 100px 1fr 92px; gap: 0px 10px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(228, 233, 236); font-size: 12px; color: rgb(56, 66, 80); background: rgb(247, 249, 250); box-shadow: none; transition: background 0.15s;">
+            <span data-dc-tpl="208" style="color: rgb(102, 112, 133); font-variant-numeric: tabular-nums;"><span class="sc-interp">07/18 09:15</span></span>
+            <span data-dc-tpl="209" style="font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 11px; color: rgb(102, 112, 133);"><span class="sc-interp">LED-0422</span></span>
+            <span data-dc-tpl="210" style="display: flex; align-items: center; gap: 6px;"><span data-dc-tpl="211" style="width: 20px; height: 20px; flex: 0 0 auto; border-radius: 6px; background: rgb(213, 245, 236); color: rgb(15, 114, 97); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;"><span class="sc-interp">営</span></span><span class="sc-interp">営業部</span></span>
+            <span data-dc-tpl="212"><span class="sc-interp">開発部</span></span>
+            <span data-dc-tpl="213"><span class="sc-interp">営業部</span></span>
+            <span data-dc-tpl="214" style="text-align: right; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; font-weight: 600; color: rgb(217, 56, 67);"><span class="sc-interp">−¥32,500</span></span>
+            <span data-dc-tpl="215" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: flex; align-items: center; gap: 6px; min-width: 0px;"><span data-dc-tpl="217" style="flex: 0 0 auto; border-radius: 999px; padding: 2px 8px; font-size: 10px; font-weight: 600; color: rgb(21, 112, 184); background: rgb(233, 243, 251);">逆仕訳</span><span data-dc-tpl="218" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><span class="sc-interp">販促物印刷費の振替 の訂正</span></span><a data-dc-tpl="220" class="scp8" style="flex: 0 0 auto; font-size: 11px; font-weight: 600; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; cursor: pointer; border-radius: 6px; padding: 1px 6px; background: rgb(240, 251, 248); border: 1px solid rgb(168, 234, 218); text-decoration: none;"><span class="sc-interp">元: LED-0419</span></a></span>
+            <span data-dc-tpl="221"><a data-dc-tpl="222" style="font-size: 11px; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; cursor: pointer;"><span class="sc-interp">REQ-0212</span></a></span>
+          </div>
+        
+          <div data-dc-tpl="207" class="scp7" style="display: grid; grid-template-columns: 96px 90px 108px 96px 96px 100px 1fr 92px; gap: 0px 10px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(228, 233, 236); font-size: 12px; color: rgb(56, 66, 80); background: transparent; box-shadow: none; transition: background 0.15s;">
+            <span data-dc-tpl="208" style="color: rgb(102, 112, 133); font-variant-numeric: tabular-nums;"><span class="sc-interp">07/17 13:28</span></span>
+            <span data-dc-tpl="209" style="font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 11px; color: rgb(102, 112, 133);"><span class="sc-interp">LED-0421</span></span>
+            <span data-dc-tpl="210" style="display: flex; align-items: center; gap: 6px;"><span data-dc-tpl="211" style="width: 20px; height: 20px; flex: 0 0 auto; border-radius: 6px; background: rgb(213, 245, 236); color: rgb(15, 114, 97); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;"><span class="sc-interp">開</span></span><span class="sc-interp">開発部</span></span>
+            <span data-dc-tpl="212"><span class="sc-interp">開発部</span></span>
+            <span data-dc-tpl="213"><span class="sc-interp">こばやし</span></span>
+            <span data-dc-tpl="214" style="text-align: right; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; font-weight: 600; color: rgb(16, 24, 40);"><span class="sc-interp">¥15,800</span></span>
+            <span data-dc-tpl="215" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: flex; align-items: center; gap: 6px; min-width: 0px;"><span data-dc-tpl="218" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><span class="sc-interp">技術書・ライセンス費</span></span></span>
+            <span data-dc-tpl="221"><a data-dc-tpl="222" style="font-size: 11px; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; cursor: pointer;"><span class="sc-interp">REQ-0210</span></a></span>
+          </div>
+        
+          <div data-dc-tpl="207" class="scp7" style="display: grid; grid-template-columns: 96px 90px 108px 96px 96px 100px 1fr 92px; gap: 0px 10px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(228, 233, 236); font-size: 12px; color: rgb(56, 66, 80); background: transparent; box-shadow: none; transition: background 0.15s;">
+            <span data-dc-tpl="208" style="color: rgb(102, 112, 133); font-variant-numeric: tabular-nums;"><span class="sc-interp">07/16 11:50</span></span>
+            <span data-dc-tpl="209" style="font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 11px; color: rgb(102, 112, 133);"><span class="sc-interp">LED-0420</span></span>
+            <span data-dc-tpl="210" style="display: flex; align-items: center; gap: 6px;"><span data-dc-tpl="211" style="width: 20px; height: 20px; flex: 0 0 auto; border-radius: 6px; background: rgb(213, 245, 236); color: rgb(15, 114, 97); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;"><span class="sc-interp">総</span></span><span class="sc-interp">総務部</span></span>
+            <span data-dc-tpl="212"><span class="sc-interp">総務部</span></span>
+            <span data-dc-tpl="213"><span class="sc-interp">営業部</span></span>
+            <span data-dc-tpl="214" style="text-align: right; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; font-weight: 600; color: rgb(16, 24, 40);"><span class="sc-interp">¥86,000</span></span>
+            <span data-dc-tpl="215" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: flex; align-items: center; gap: 6px; min-width: 0px;"><span data-dc-tpl="218" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><span class="sc-interp">展示会ブース費の部門分担</span></span></span>
+            <span data-dc-tpl="221"><a data-dc-tpl="222" style="font-size: 11px; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; cursor: pointer;"><span class="sc-interp">REQ-0193</span></a></span>
+          </div>
+        
+          <div data-dc-tpl="207" class="scp7" style="display: grid; grid-template-columns: 96px 90px 108px 96px 96px 100px 1fr 92px; gap: 0px 10px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgb(228, 233, 236); font-size: 12px; color: rgb(56, 66, 80); background: transparent; box-shadow: none; transition: background 0.15s;">
+            <span data-dc-tpl="208" style="color: rgb(102, 112, 133); font-variant-numeric: tabular-nums;"><span class="sc-interp">07/15 15:33</span></span>
+            <span data-dc-tpl="209" style="font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 11px; color: rgb(102, 112, 133);"><span class="sc-interp">LED-0419</span></span>
+            <span data-dc-tpl="210" style="display: flex; align-items: center; gap: 6px;"><span data-dc-tpl="211" style="width: 20px; height: 20px; flex: 0 0 auto; border-radius: 6px; background: rgb(213, 245, 236); color: rgb(15, 114, 97); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;"><span class="sc-interp">営</span></span><span class="sc-interp">営業部</span></span>
+            <span data-dc-tpl="212"><span class="sc-interp">営業部</span></span>
+            <span data-dc-tpl="213"><span class="sc-interp">開発部</span></span>
+            <span data-dc-tpl="214" style="text-align: right; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; font-weight: 600; color: rgb(16, 24, 40);"><span class="sc-interp">¥32,500</span></span>
+            <span data-dc-tpl="215" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: flex; align-items: center; gap: 6px; min-width: 0px;"><span data-dc-tpl="218" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><span class="sc-interp">販促物印刷費の振替</span></span><a data-dc-tpl="220" class="scp8" style="flex: 0 0 auto; font-size: 11px; font-weight: 600; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; cursor: pointer; border-radius: 6px; padding: 1px 6px; background: rgb(240, 251, 248); border: 1px solid rgb(168, 234, 218); text-decoration: none;"><span class="sc-interp">逆仕訳: LED-0422</span></a></span>
+            <span data-dc-tpl="221"><a data-dc-tpl="222" style="font-size: 11px; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; cursor: pointer;"><span class="sc-interp">REQ-0212</span></a></span>
+          </div>
+        
+        <div data-dc-tpl="223" style="display: grid; grid-template-columns: 96px 90px 108px 96px 96px 100px 1fr 92px; gap: 0px 10px; align-items: center; padding: 13px 16px; background: rgb(240, 251, 248); border-top: 2px solid rgb(168, 234, 218); font-size: 12px;">
+          <span data-dc-tpl="224" style="grid-column: 1 / 6; font-weight: 600; color: rgb(15, 114, 97);">表示範囲の合計 <span data-dc-tpl="225" style="font-weight: 400; color: rgb(102, 112, 133);">（<span class="sc-interp">6</span>件 ・ うち逆仕訳 1件）</span></span>
+          <span data-dc-tpl="226" style="text-align: right; font-family: ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; font-size: 14px; font-weight: 700; color: rgb(16, 24, 40);"><span class="sc-interp">¥231,040</span></span>
+          <span data-dc-tpl="227" style="font-size: 11px; color: rgb(102, 112, 133);">正味（逆仕訳相殺後）</span><span data-dc-tpl="228"></span>
+        </div>
+      
+      
+    </section>
+  </main>
+  
+  
+  </div></div></div>
+</body>
+</html>
