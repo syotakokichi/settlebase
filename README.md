@@ -63,8 +63,9 @@ settlebase/
 └── LICENSE     # MIT
 ```
 
-開発ツール（beads 進捗 UI 等）は将来 `tools/` に置く。
-tools は `web/` のスタックに縛られず、独立したスタック（ゼロ依存 CLI 等）を選んでよい。
+開発ツールはこの repo に同居させず、独立リポジトリとして公開する
+（beads 進捗ビューアは [beadmap](https://github.com/syotakokichi/beadmap)）。
+ドメイン無関係のツールを混ぜず、repo の説明を精算基盤に集中させるための分離。
 
 ## 開発
 
