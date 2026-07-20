@@ -66,6 +66,7 @@ settlebase/
 開発ツールはこの repo に同居させず、独立リポジトリとして公開する
 （beads 進捗ビューアは [beadmap](https://github.com/syotakokichi/beadmap)）。
 ドメイン無関係のツールを混ぜず、repo の説明を精算基盤に集中させるための分離。
+この repo のタスク進捗は [beadmap の静的デモ](https://syotakokichi.github.io/beadmap/)で俯瞰できる。
 
 ## 開発
 
