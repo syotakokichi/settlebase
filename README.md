@@ -30,12 +30,13 @@ AI 開発ハーネス連載（Zenn）のデモリポジトリとして、プロ�
 
 最新の弾のグラレコ（弾ごとに差し替え）:
 
-![第2弾 テナント境界編のグラフィックレコーディング](docs/devlog/assets/2026-07-19-tenant-boundary.png)
+![第3弾 UI設計編のグラフィックレコーディング](docs/devlog/assets/2026-07-20-ui-design.png)
 
 | 弾 | 内容 | 記事 | devlog | グラレコ |
 |----|------|------|--------|---------|
 | 第1弾 | 立ち上げ: 構想から 1 日で公開 | [Zenn](https://zenn.dev/syommy_program/articles/settlebase-launch-devlog) | [2026-07-18-launch](docs/devlog/2026-07-18-launch.md) | [PNG](docs/devlog/assets/2026-07-18-launch.png) |
 | 第2弾 | テナント境界: RLS × pgTAP × CI の三層 | 執筆中 | [2026-07-19-tenant-boundary](docs/devlog/2026-07-19-tenant-boundary.md) | [PNG](docs/devlog/assets/2026-07-19-tenant-boundary.png) |
+| 第3弾 | UI設計: Claude Design でデザインシステム + 主要 6 画面 | 執筆中 | [2026-07-20-ui-design](docs/devlog/2026-07-20-ui-design.md) | [PNG](docs/devlog/assets/2026-07-20-ui-design.png) |
 
 ## Out of Scope（やらないこと）
 
