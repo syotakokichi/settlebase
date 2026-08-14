@@ -1,7 +1,9 @@
 # settlebase デザインシステム
 
 UI 設計（2026-07-20）で確定したデザイントークンと使用ルールの一次ソース。
-Claude Design 上のデザインシステムプロジェクト（settlebase-ds）と同内容を repo に永続化したもの。
+Claude Design 上のデザインシステムプロジェクト（settlebase-ds）へ同期したトークン体系を、
+repo 側の永続版として書き起こしたもの（同期したコンポーネントプレビュー 7 点そのものは
+Claude Design 側にあり、repo には含まれない）。
 実装時は本ファイルのトークンを Tailwind テーマ / CSS 変数に反映する（反映は後続タスク）。
 
 ## トーンの決定過程
@@ -10,6 +12,8 @@ Claude Design 上のデザインシステムプロジェクト（settlebase-ds�
 C: モノクロ+シグナル = 無彩色+ステータス色のみ）を比較し、**B 案「モダン SaaS」を採用**。
 採用理由: 親しみやすさとオーナーのブランド感覚に合うこと（比較・採用の記録は
 [devlog](../devlog/2026-07-20-ui-design.md) を参照）。
+
+![デザイントーン候補 3 案の比較（左: A 堅実・金融 / 中央: B モダン SaaS = 採用 / 右: C モノクロ+シグナル）](ds-tone-candidates.png)
 
 ## カラートークン
 
@@ -77,6 +81,46 @@ C: モノクロ+シグナル = 無彩色+ステータス色のみ）を比較し
 
 **金額は必ず等幅 + tabular-nums + 右揃え**（桁の縦位置を揃える）。
 
+上表は実装時の目標スケール。2026-07-20 のワイヤー成果物は Claude Design が 1280px 基準で
+出力したもので、実測はこれより 1〜2 段小さい（見出し L 20px / 本文・ナビ 13px /
+補助 11〜12px）。実装で Tailwind テーマへ反映する際にどちらへ寄せるかは未確定
+（[devlog §6](../devlog/2026-07-20-ui-design.md) の既知の残課題を参照）。
+
+## 密度（レイアウト）
+
+**基準ビューポート: 1280px 幅・デスクトップファースト**（[screen-specs](screen-specs.md) の
+対応ビューポート方針に準拠）。以下は代表画面 [ledger.html](ledger.html) の実測値。
+
+| 項目 | 値 | 用途 |
+| --- | --- | --- |
+| サイドバー幅 | 232px | 全画面共通シェル |
+| コンテンツ余白 | 28px（上下） / 32px（左右） | メイン領域のページ内側 |
+| カード内余白 | 12px 16px | カード・パネルのボックス |
+| テーブル行余白 | 13px 16px | 台帳・一覧の行（行高 約 42px） |
+| コントロール余白 | 9px 12px（標準） / 9px 16px（主ボタン） | ボタン・フィルタ・ナビ項目 |
+| バッジ余白 | 2px 8px（標準） / 1px 6px（極小） | ステータス・逆仕訳・準備金 |
+| 要素間ギャップ | 6px（密） / 10px（標準） / 16px（疎） | アイコン + ラベル / 行内 / セクション内 |
+| セクション間マージン | 14px / 20px | フィルタ列・カード間 |
+| アイコン・ドット | 16px / 20px（アイコン） / 6px（ステータスドット） | ナビ・アバター・バッジ |
+
+「余白広め」の実装は、**行の高さではなく行間ギャップとカード余白で確保する**
+（台帳・監査ログのような高密度テーブルは行高を詰め、周囲の余白で呼吸させる）。
+
+## 主要コンポーネント
+
+Claude Design の settlebase-ds へ同期した 7 点（foundations: colors / type、components:
+buttons / badges / table / card / sidebar）の永続仕様。
+
+| コンポーネント | 構造 | 状態 |
+| --- | --- | --- |
+| **ボタン（主）** | `--sb-primary-600` 背景 + `--sb-text-invert` / radius-s / 余白 9px 16px / weight 600 | hover = `--sb-primary-700` / disabled = `--sb-surface-muted` + `--sb-text-faint` |
+| **ボタン（副）** | `--sb-surface` 背景 + `--sb-border-strong` 枠 + `--sb-text-strong` / radius-s | hover = `--sb-surface-muted` / focus = `--sb-ring` |
+| **ボタン（danger）** | `--sb-danger-600` 背景 + `--sb-text-invert` | hover = `--sb-danger-700`。却下・破壊的操作のみ |
+| **バッジ** | 先頭 6px 色ドット + テキスト / radius 999px / 余白 2px 8px | ステータス 5 種（approved / rejected / pending / info / draft）。色だけに頼らない |
+| **テーブル** | ヘッダ = `--sb-surface-muted` / 行区切り = `--sb-border` 1px / 金額列は等幅 + tabular-nums + 右揃え / 末尾に集計行（`--sb-primary-50` 背景） | 行 hover = `--sb-primary-50` / 空状態は専用メッセージ + 導線 |
+| **カード** | `--sb-surface` 背景 + `--sb-border` 枠 + radius-l + shadow-m / 内側余白 12px 16px | モーダルも同構造（背景オーバーレイ + shadow-m） |
+| **サイドバー** | 幅 232px / 上部にテナント切替（枠付きボタン）/ ナビ項目 = アイコン 20px + ラベル 13px・余白 9px 12px・radius-s / 下部にログイン中メンバー + ロールバッジ | 選択中 = `--sb-primary-100` 背景 + `--sb-primary-700` 文字 + weight 600 / 非活性ロールの項目は非表示 |
+
 ## 形状・影
 
 | トークン | 値 | 用途 |
@@ -95,8 +139,17 @@ C: モノクロ+シグナル = 無彩色+ステータス色のみ）を比較し
 
 ## 関連ファイル
 
-- [screen-specs.md](screen-specs.md) — 画面要件仕様
-- [concept.md](concept.md) — システム全体像
-- [devlog 2026-07-20](../devlog/2026-07-20-ui-design.md) — 設計過程の記録
-- `wire-01`〜`wire-06b` PNG — 各画面ワイヤーフレーム（本ディレクトリ）
-- [ledger.html](ledger.html) — 代表画面（台帳）の静的スナップショット
+- [screen-specs.md](screen-specs.md) — 画面要件仕様（画面別チェックリスト）
+- [concept.md](concept.md) — システム全体像・記帳モデル（業務ルールの一次ソース）
+- [devlog 2026-07-20](../devlog/2026-07-20-ui-design.md) — 設計過程の記録・適合表・境界チェック証跡
+- [ds-tone-candidates.png](ds-tone-candidates.png) — トーン候補 3 案の比較（採用 = 中央 B 案）
+- ワイヤーフレーム（本ディレクトリ）:
+  [wire-01-wallets](wire-01-wallets.png) /
+  [wire-02-request](wire-02-request.png) /
+  [wire-03-approvals](wire-03-approvals.png) /
+  [wire-04-ledger](wire-04-ledger.png) /
+  [wire-04b-ledger-empty](wire-04b-ledger-empty.png) /
+  [wire-05-audit](wire-05-audit.png) /
+  [wire-06-roles](wire-06-roles.png) /
+  [wire-06b-role-modal](wire-06b-role-modal.png)
+- [ledger.html](ledger.html) — 代表画面（台帳）の静的スナップショット。`wire-04-ledger.png` の仕上げ版で、本ファイルの密度実測値の出所

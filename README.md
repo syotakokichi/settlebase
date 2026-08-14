@@ -26,17 +26,21 @@ AI 開発ハーネス連載（Zenn）のデモリポジトリとして、プロ�
 このリポジトリは連載と並行して段階的に育てる方針のため、
 進捗と設計判断は docs/devlog/ と docs/adr/ を参照。
 
-## 連載とここまでの歩み
+## このリポジトリの歩み
 
-最新の弾のグラレコ（弾ごとに差し替え）:
+**このリポジトリで進めた開発の段階**を古い順に並べたもの。
+連載記事は settlebase 以外の題材（自作ツール等）も扱うため、記事側の通し番号とは
+一致しない（記事の通し順は各記事末尾の「連載一覧」を参照）。
 
-![第3弾 UI設計編のグラフィックレコーディング](docs/devlog/assets/2026-07-20-ui-design.png)
+最新段階のグラレコ（段階ごとに差し替え）:
 
-| 弾 | 内容 | 記事 | devlog | グラレコ |
-|----|------|------|--------|---------|
-| 第1弾 | 立ち上げ: 構想から 1 日で公開 | [Zenn](https://zenn.dev/syommy_program/articles/settlebase-launch-devlog) | [2026-07-18-launch](docs/devlog/2026-07-18-launch.md) | [PNG](docs/devlog/assets/2026-07-18-launch.png) |
-| 第2弾 | テナント境界: RLS × pgTAP × CI の三層 | 執筆中 | [2026-07-19-tenant-boundary](docs/devlog/2026-07-19-tenant-boundary.md) | [PNG](docs/devlog/assets/2026-07-19-tenant-boundary.png) |
-| 第3弾 | UI設計: Claude Design でデザインシステム + 主要 6 画面 | 執筆中 | [2026-07-20-ui-design](docs/devlog/2026-07-20-ui-design.md) | [PNG](docs/devlog/assets/2026-07-20-ui-design.png) |
+![第3段階 UI設計編のグラフィックレコーディング](docs/devlog/assets/2026-07-20-ui-design.png)
+
+| 段階 | 内容 | 記事 | devlog | グラレコ |
+| --- | --- | --- | --- | --- |
+| 第1段階 | 立ち上げ: 構想から 1 日で公開 | [Zenn](https://zenn.dev/syommy_program/articles/settlebase-launch-devlog) | [2026-07-18-launch](docs/devlog/2026-07-18-launch.md) | [PNG](docs/devlog/assets/2026-07-18-launch.png) |
+| 第2段階 | テナント境界: RLS × pgTAP × CI の三層 | [Zenn](https://zenn.dev/syommy_program/articles/settlebase-tenant-boundary) | [2026-07-19-tenant-boundary](docs/devlog/2026-07-19-tenant-boundary.md) | [PNG](docs/devlog/assets/2026-07-19-tenant-boundary.png) |
+| 第3段階 | UI設計: Claude Design でデザインシステム + 主要 6 画面 | 執筆中 | [2026-07-20-ui-design](docs/devlog/2026-07-20-ui-design.md) | [PNG](docs/devlog/assets/2026-07-20-ui-design.png) |
 
 ## Out of Scope（やらないこと）
 

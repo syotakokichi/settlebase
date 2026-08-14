@@ -70,3 +70,10 @@ maker-checker / 冪等キー / append-only 台帳 / 監査ログ）を見せる�
 - 証憑ファイルの実体保存（UI はダミー添付）
 - 高度な検索・レポート / 分析ダッシュボード
 - モバイル対応（デスクトップファースト。将来は承認画面から縦切り）
+
+## 関連ファイル
+
+- [screen-specs.md](screen-specs.md) — 画面別の要件仕様・必須要素チェックリスト
+- [design-system.md](design-system.md) — デザイントークン・密度・主要コンポーネント
+- [devlog 2026-07-20](../devlog/2026-07-20-ui-design.md) — UI 設計の過程と意思決定の記録
+- [GLOSSARY](../../GLOSSARY.md) — 用語定義
